@@ -5,30 +5,25 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
+  
   title = 'PruebaDesarrollo';
-
-}
-
+   
+  }
+  
 class Alcancia {
   monedas: any =  { 
      50: "", 
      100: "",
      200: "",
-    500: "", 
-    1000: "", 
+     500: "", 
+     1000: "", 
   };
 
   constructor() {
-    this.monedas = {
-      50: 0,
-      100: 0,
-      200: 0,
-      500: 0,
-      1000: 0,
-    };
+    
   }
-
+  
   agregarMonedaAlcancia(denominacion:number) {
     if (this.monedas.hasOwnProperty(denominacion)) {
       this.monedas[denominacion]++;
@@ -45,7 +40,9 @@ class Alcancia {
       totalDinero += Number(denominacion) * this.monedas[denominacion];
     }
     return totalDinero;
+    
   }
+ 
 
   cantidadMonedasPorDenominacionAlcancia(denominacion:number) {
     if (this.monedas.hasOwnProperty(denominacion)) {
@@ -60,6 +57,7 @@ class Alcancia {
     } 
       return 0;
   }
+
 }
 
 const alcancia = new Alcancia();
@@ -69,7 +67,6 @@ alcancia.agregarMonedaAlcancia(100);
 alcancia.agregarMonedaAlcancia(200);
 alcancia.agregarMonedaAlcancia(500);
 alcancia.agregarMonedaAlcancia(1000);
-
 
 console.log("Cantidad de monedas en la alcancia: "+ alcancia.cantidadMonedasAlcancia());
 console.log("Cantidad de dinero dentro de la alcancia: "+ alcancia.cantidadDineroAlcancia());
